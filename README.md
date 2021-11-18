@@ -1,6 +1,6 @@
 # StalkerWiki
-
-## For startup:
+Little wikipedia based on django about modding on Stalker
+## Run the site:
 Install django and ckeditor:
 ```bash
 pip install django
