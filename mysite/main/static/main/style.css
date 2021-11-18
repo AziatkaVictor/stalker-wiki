@@ -1,0 +1,371 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+html {
+    height: -webkit-fill-available;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+    min-width: 1000px !important;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.body-main{
+    background: url(main-background.jpg);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.body-login{
+    background: url(https://gameguru.ru/media/f/wallpapers/2/77/83/1680.jpg);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    min-width: 350px !important;
+    overflow: hidden;
+}
+
+a{
+    text-decoration: none;
+    color: #ffffff;
+    transition: 0.25s color;
+}
+
+a:hover{
+    color: #ed8026;
+}
+
+.navigator{
+    width: -webkit-fill-available;
+    background: #2e2823;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    top: 0;
+    padding: 10px 15px;
+    list-style: none;
+    z-index: 9999;
+}
+
+.navigator-container{
+    display: flex;
+}
+
+.navigator-item{
+    padding-right: 15px;
+}
+
+.navigator-item:last-child{
+    padding: 0px !important;
+}
+
+.title-container{
+    width: 100%;
+    padding: 30px 0;
+    background: #2e2823;
+}
+
+.title-text{
+    text-align: center;
+}
+
+.content-container{
+    padding: 0 20px 20px 20px;
+    text-align: justify;
+}
+
+.main-container {
+    width: 1000px;
+    margin: 0 auto;
+    margin-top: 150px;
+    background: #1c1815;
+}
+
+.main-container-login{
+    background: #1c1815;
+    padding: 20px;
+    padding-bottom: 10px;
+    width: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+}
+
+.error-container{
+    width: 250px;
+    position: fixed;
+    right: 10px;
+    bottom: 5px;
+}
+
+.errorlist > li {
+    list-style: none !important;
+    margin-bottom: 5px;
+    padding: 10px;
+    text-align: justify;
+    font-size: 12px;
+    background: #3e1b1b;
+}
+
+.errorlist {
+    padding: 0 !important;
+    margin: 5px 0;
+}
+
+.form-container{
+    text-align: center;
+}
+
+input {
+    border: none;
+    background: #3c342d;
+    border-radius: 0px;
+    padding: 10px;
+    color: #ffffff;
+    outline: none;
+    transition: 0.5s background;
+}
+
+input:focus {
+  background: #544c45;
+  transition: 0.5s background;
+}
+
+input:hover {
+  background: #544c45;
+  transition: 0.5s background;
+}
+
+select {
+    border: none;
+    background: #3c342d;
+    border-radius: 0px;
+    padding: 10px;
+    color: #ffffff;
+    outline: none;
+    transition: 0.5s background;
+}
+
+select:focus {
+  background: #544c45;
+  transition: 0.5s background;
+}
+
+select:hover {
+  background: #544c45;
+  transition: 0.5s background;
+}
+
+.input-container{
+    width: fit-content;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+.main-container-login-title{
+    margin: 0px;
+    margin-bottom: 20px;
+    font-size: 22px;
+    text-align: center;
+}
+
+.list-bar{
+    width: -webkit-fill-available;
+    background: #3a3430;
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding: 10px 15px;
+    margin-top: 3px;
+}
+
+.list-bar.Add {
+    background: #283826;
+    padding-left: 40px;
+    background-image: url(add-page.png);
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: 10px;
+}
+
+.list-bar.Edit {
+    background: #2a2c3a;
+    padding-left: 40px;
+    background-image: url(edit-page.png);
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: 10px;
+}
+
+.list-bar-container{
+    display: flex;
+    font-size: 12px;
+}
+
+.list-bar-info{
+    width: -webkit-fill-available;
+    background: #2e2823;
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding: 10px 15px;
+}
+
+.list-bar-info-container{
+    display: flex;
+}
+
+.list-bar-text{
+    width: 120px;
+    margin-right: 3px;
+    text-align: center;
+    margin: auto;
+}
+
+.list-bar-text:last-child{
+    margin-right: 0px;
+}
+
+.list-bar-title{
+    width: fit-content;
+    margin-right: 3px;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.article-info{
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding: 10px 0;
+}
+
+.add-article-settings {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px
+}
+
+.add-article-content {
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.article-edit-panel {
+    justify-content: space-between;
+    background: #0e0d0c;
+    padding: 10px;
+    display: flex;
+}
+
+.article-edit-panel > div {
+    width: fit-content;
+}
+
+small {
+    color: #847970;
+}
+
+.info{
+    display: flex;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.info-container {
+    width: 150px;
+    height: 150px;
+    background: #2e2823;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.info-container:last-child {
+    margin-right: 0px;
+}
+
+.info-container-title {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.info-container-count {
+    font-size: 70px;
+    color: #ffffff;
+    font-weight: 200;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: -10px;
+    margin-bottom: -35px;
+}
+
+.title-stalker {
+    padding: 20px 20px;
+    margin: 20px 0;
+    font-weight: 700;
+    font-size: 30px;
+}
+
+.title-stalker-1 {
+    background: url(stalker-soc.png);
+}
+
+.title-stalker-2 {
+    background: url(stalker-cs.png);
+}
+
+.title-stalker-3 {
+    background: url(stalker-cop.png);
+}
+
+.title-stalker-4 {
+    background: url(stalker-all.png);
+}
+
+.title-stalker-5 {
+    background: url(stalker-other.png);
+}
+
+code.hljs {
+    background: #2e2823 !important;
+    color: #fce8c3 !important;
+    line-height: 1.5em !important;
+    font-size: 12px !important;
+}
+
+blockquote
+{
+	padding: 2px 0;
+	border-style: solid;
+	border-color: #544c45;
+    background: #2c2622;
+	border-width: 0;
+	padding-left: 20px;
+	padding-right: 8px;
+	border-left-width: 5px;
+}
+
+::-webkit-scrollbar {
+  width: 0.75em;
+}
+
+::-webkit-scrollbar-track {
+    background: #2c2622;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #544c45;
+  border-radius: 5px;
+}

@@ -1,0 +1,33 @@
+{% extends 'main/base_login_or_regist.html' %}
+
+{% block title %}Вход в Аккаунт{% endblock %}
+{% block content %}
+<div class="main-container-login">
+    <h2 class="main-container-login-title">Вход в Аккаунт</h2>
+    <form method="POST" action="" class="form-container">
+        {% csrf_token %}
+        <div class="input-container">
+            <input type="text" name="username" maxlength="150" autofocus="" required="" id="id_username">
+        </div>
+        <div class="input-container">
+            <input type="password" name="password" required="" id="id_password">
+        </div>
+        <div class="input-container">
+            <input type="submit" name="Create User">
+        </div>
+    </form>
+    <p style="text-align: center; font-size: 12px; margin-bottom: -2px; color: #808080;"><a href="{% url 'home' %}">Главная</a> | <a href="{% url 'regist' %}">Регистрация</a></p>
+    <script>
+        var fields = document.getElementsByTagName('input');
+        fields[1].placeholder = 'Имя';
+        fields[2].placeholder = 'Пароль';
+    </script>
+</div>
+{% if error %}
+    <div class="error-container">
+        <ul class="errorlist">
+            <li>{{error}}</li>
+        </ul>
+    </div>
+{% endif %}
+{% endblock %}

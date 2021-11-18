@@ -1,0 +1,29 @@
+{% extends 'main/base_login_or_regist.html' %}
+
+{% block title %}Регистрация{% endblock %}
+{% block content %}
+<div class="main-container-login">
+    <h2 class="main-container-login-title">Регистрация</h2>
+    <form method="POST" action="" class="form-container">
+        {% csrf_token %}
+        {% for field in form %}
+            <div class="input-container">{{ field }}</div>
+        {% endfor %}
+        <div class="input-container">
+            <input type="submit" name="Create User">
+        </div>
+    </form>
+    <p style="text-align: center; font-size: 12px; margin-bottom: -2px; color: #808080;"><a href="{% url 'home' %}">Главная</a> | <a href="{% url 'login' %}">Войти</a></p>
+    <script>
+        var fields = document.getElementsByTagName('input');
+        fields[1].placeholder = 'Имя';
+        fields[2].placeholder = 'Пароль';
+        fields[3].placeholder = 'Повторить пароль';
+    </script>
+</div>
+<div class="error-container">
+{% for errors in form %}
+    {{ errors.errors }}
+{% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'main/style.css' %}">
+    <link type="image/png" sizes="120x120" rel="icon" href="{% static 'main/favicon-120x120.png' %}">
+</head>
+<body class="body-login">
+    {% block content %}{% endblock %}
+</body>
+</html>

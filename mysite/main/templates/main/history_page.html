@@ -1,0 +1,30 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Активность{% endblock %}
+{% block content %}
+<div class="main-container">
+    <div class="title-container">
+        <h1 class="title-text">
+            Активность
+        </h1>
+    </div>
+    <div class="content-container">
+        <p>
+            Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.
+        </p>
+        <h2 style="text-align: center;">Последняя активность:</h2>
+        {% if history %}
+            {% for item in history %}
+                <div class="list-bar {{ item.type.name }}">
+                {% if item.info %}
+                        <li class="list-bar-title">{{ item.author }} <font color="#969696">{{ item.type.descr }}</font> <a href="{% url 'article-detail' item.info.id %}">{{ item.info.name }}</a></li>
+                {% else %}
+                        <li class="list-bar-title">{{ item.author }} <font color="#969696">{{ item.type.descr }}</font> {{ item.info_name }} <font color="#969696">Удалено</font></li>
+                {% endif %}
+                    <li class="list-bar-title"><small>{{ item.date }}</small></li>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

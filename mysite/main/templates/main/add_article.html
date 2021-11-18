@@ -1,0 +1,31 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Добавить запись{% endblock %}
+{% block content %}
+<div class="main-container">
+    <div style="padding: 20px;">
+        <h1 class="main-container-login-title">Добавить запись</h1>
+        <form method="POST" action="" class="add-article">
+            {% csrf_token %}
+            {{ form.media }}
+
+            <div class="add-article-content">
+                <div class="add-article-settings">
+                    <div>Название: {{ form.name }}</div>
+                    <div>Тип: {{ form.type }}</div>
+                    <div>Часть: {{ form.stalker }}</div>
+                </div>
+                {{ form.content }}
+            </div>
+            <div style="width: fit-content; margin: 0 auto; margin-top: 20px;">
+                <input type="submit" name="Create Article">
+            </div>
+        </form>
+    </div>
+</div>
+<div class="error-container">
+{% for errors in form %}
+    {{ errors.errors }}
+{% endfor %}
+</div>
+{% endblock %}

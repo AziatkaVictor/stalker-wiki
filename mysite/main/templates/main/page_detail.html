@@ -1,0 +1,35 @@
+{% extends 'main/base.html' %}
+
+{% block title %}{{ object.name }}{% endblock %}
+{% block content %}
+<div class="main-container">
+    <div class="title-container">
+        <h2 class="title-text">
+            {{ object.name }}
+        </h2>
+    </div>
+    <div class="content-container">
+        <div class="article-info">
+            <li><small>Автор:</small> {{ object.author }}</li>
+            <li><small>Категория:</small> {{ object.type }}</li>
+            <li><small>Часть:</small> {{ object.stalker }}</li>
+            <li><small>Дата публикации:</small> {{ object.date_publish|date:"d-m-y G:i" }}</li>
+        </div>
+        {{ object.content|safe }}
+    </div>
+    <div class="article-edit-panel">
+        <div>
+            Последние изменение: ---
+        </div>
+        {% if request.user.is_authenticated %}
+        <div>
+            {% if request.user.is_superuser %}
+                <a href="{% url 'article-edit' object.id %}">Редактировать</a> | <a>Удалить</a>
+            {% else %}
+                <a href="{% url 'article-edit' object.id %}">Редактировать</a>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

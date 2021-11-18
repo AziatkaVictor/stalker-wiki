@@ -1,0 +1,60 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Информация{% endblock %}
+{% block content %}
+{% load extras %}
+<div class="main-container">
+    <div class="title-container">
+        <h1 class="title-text">
+            Информация
+        </h1>
+    </div>
+    <div class="content-container">
+        <p>
+            Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.
+        </p>
+
+        {% if pages %}
+        <h2 style="text-align: center;">Количество записей по категориям:</h2>
+        <div class="info">
+            {% for type in types %}
+                <div class="info-container">
+                    <div class="info-container-count">{{ pages|in_category_count:type }}</div>
+                    <div class="info-container-title">{{ type }}</div>
+                </div>
+            {% endfor %}
+        </div>
+        <p>
+            Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.
+        </p>
+
+        <h2 style="text-align: center;">Количество записей по платформам:</h2>
+        <div class="info">
+            {% for stalker in stalkers %}
+                <div class="info-container">
+                    <div class="info-container-count">{{ pages|in_stalker_count:stalker }}</div>
+                    <div class="info-container-title">{{ stalker }}</div>
+                </div>
+            {% endfor %}
+        </div>
+        <p>
+            Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.
+        </p>
+        {% endif %}
+        {% if users %}
+        <h2 style="text-align: center;">Количество записей по платформам:</h2>
+        <div class="info">
+            {% for user in users %}
+                <div class="info-container">
+                    <div class="info-container-count">{{ pages|in_user_article_count:user }}</div>
+                    <div class="info-container-title">{{ user }}</div>
+                </div>
+            {% endfor %}
+        </div>
+        <p>
+            Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.
+        </p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

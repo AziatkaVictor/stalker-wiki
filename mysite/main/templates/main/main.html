@@ -1,0 +1,43 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Главная страница{% endblock %}
+{% block content %}
+<div class="main-container">
+    <div class="title-container">
+        <h1 class="title-text">
+            Главная страница
+        </h1>
+    </div>
+    <div class="content-container">
+        <p>
+            Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.
+        </p>
+        <h2 style="text-align: center;">Количество записей: {{ count }}</h2>
+        <p>
+            Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.
+        </p>
+        {% if pages %}
+        <div class="list-bar-info">
+            <li class="list-bar-title">Название</li>
+            <div class="list-bar-info-container">
+                <li class="list-bar-text">Автор</li>
+                <li class="list-bar-text">Категория</li>
+                <li class="list-bar-text">Часть</li>
+                <li class="list-bar-text">Дата</li>
+            </div>
+        </div>
+        {% for item in pages %}
+        <div class="list-bar">
+            <li class="list-bar-title"><a href="{% url 'article-detail' item.pk %}">{{ item.name }}</a></li>
+            <div class="list-bar-container">
+                <li class="list-bar-text">{{ item.author }}</li>
+                <li class="list-bar-text">{{ item.type|safe }}</li>
+                <li class="list-bar-text">{{ item.stalker }}</li>
+                <li class="list-bar-text">{{ item.date_publish|date:"d-m-y G:i" }}</li>
+            </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

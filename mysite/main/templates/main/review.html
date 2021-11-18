@@ -1,0 +1,83 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Обзор{% endblock %}
+{% block content %}
+
+{% load extras %}
+<div class="main-container">
+    <div class="title-container">
+        <h1 class="title-text">
+            Обзор
+        </h1>
+    </div>
+    <div class="content-container">
+        <p>
+            Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.
+        </p>
+        {% if pages %}
+        {% for stalker in stalkers %}
+            {% if pages|in_stalker:stalker %}
+            <div class="title-stalker title-stalker-{{ stalker.id }}">
+                {{ stalker.name }}
+            </div>
+            {% for article_type in types %}
+                {% if pages|in_category:article_type|in_stalker:stalker %}
+                <div id="details-{{ stalker.id }}-{{ article_type.id }}" class="Close" style="margin-top: 3px;">
+                    <summary id="summary-{{ stalker.id }}-{{ article_type.id }}" class="list-bar-info">
+                        <li class="list-bar-title">{{ article_type }}</li>
+                        <li class="list-bar-title"><small>{{ pages|in_stalker:stalker|in_category_count:article_type }} записей</small></li>
+                    </summary>
+                    <div>
+                    {% for item in pages|in_category:article_type|in_stalker:stalker %}
+                        <div class="list-bar">
+                            <li class="list-bar-title"><a href="{% url 'article-detail' item.pk %}">{{ item.name }}</a></li>
+                            <div class="list-bar-container">
+                                <li class="list-bar-text">{{ item.author }}</li>
+                                <li class="list-bar-text">{{ item.date_publish|date:"d-m-y G:i" }}</li>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    </div>
+
+                </div>
+                    <script>
+                        var fields_{{ stalker.id }}_{{ article_type.id }} = document.getElementById("details-{{ stalker.id }}-{{ article_type.id }}");
+                        var button_{{ stalker.id }}_{{ article_type.id }} = document.getElementById("summary-{{ stalker.id }}-{{ article_type.id }}");
+                        button_{{ stalker.id }}_{{ article_type.id }}.onclick = AddClassDetail_{{ stalker.id }}_{{ article_type.id }};
+
+                        function AddClassDetail_{{ stalker.id }}_{{ article_type.id }} (event) {
+                            fields_{{ stalker.id }}_{{ article_type.id }}.classList.toggle("Close");
+                        }
+                    </script>
+                    <style>
+                        #summary-{{ stalker.id }}-{{ article_type.id }} {
+                            cursor: pointer;
+                        }
+
+                        #details-{{ stalker.id }}-{{ article_type.id }} {
+                            overflow: hidden;
+                        }
+
+                        #details-{{ stalker.id }}-{{ article_type.id }} > div {
+                            transition: all 0.4s linear;
+                            -webkit-transition: all 0.4s linear;
+                            opacity: 1;
+                            max-height: {{ pages|in_category_count:article_type|multiply:50 }}px;
+                        }
+
+                        #details-{{ stalker.id }}-{{ article_type.id }}.Close > div {
+                            opacity: 0;
+                            max-height: 0;
+                        }
+                    </style>
+                {% endif %}
+            {% endfor %}
+            {% endif %}
+        {% endfor %}
+        <p>
+            Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.
+        </p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

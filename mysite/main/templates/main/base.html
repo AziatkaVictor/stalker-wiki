@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'main/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'main/ckeditor_custom.css' %}">
+    <link type="image/png" sizes="120x120" rel="icon" href="{% static 'main/favicon-120x120.png' %}">
+    <link rel="stylesheet" href="https://highlightjs.org/static/demo/styles/monokai-sublime.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script type="text/javascript" src="{% static "/main/ckeditor/ckeditor-init.js" %}"></script>
+    <script type="text/javascript" src="{% static "/main/ckeditor/ckeditor/ckeditor.js" %}"></script>
+</head>
+<body class="body-main">
+    <nav class="navigator">
+        {% if not request.user.is_authenticated %}
+            <div class="navigator-container">
+                <li class="navigator-item"><a href="{% url 'home' %}">Главная</a></li>
+                <li class="navigator-item"><a href="{% url 'review' %}">Обзор</a></li>
+                <li class="navigator-item"><a href="{% url 'info' %}">Информация</a></li>
+                <li class="navigator-item"><a href="{% url 'history' %}">Активность</a></li>
+            </div>
+            <div class="navigator-container">
+                <li class="navigator-item"><a href="{% url 'login' %}">Вход</a></li>
+                <li class="navigator-item"><a href="{% url 'regist' %}">Регистрация</a></li>
+            </div>
+        {% else %}
+            <div class="navigator-container">
+                <li class="navigator-item"><a href="{% url 'home' %}">Главная</a></li>
+                <li class="navigator-item"><a href="{% url 'review' %}">Обзор</a></li>
+                <li class="navigator-item"><a href="{% url 'add-article' %}">Добавить запись</a></li>
+                <li class="navigator-item"><a href="{% url 'info' %}">Информация</a></li>
+                <li class="navigator-item"><a href="{% url 'history' %}">Активность</a></li>
+                {% if request.user.is_superuser %}
+                <li class="navigator-item"><a href="/admin/">Админ</a></li>
+                {% endif %}
+            </div>
+            <div class="navigator-container">
+                <li class="navigator-item">{{request.user}}</li>
+                <li class="navigator-item"><a href="{% url 'logout' %}">Выход</a></li>
+            </div>
+        {% endif %}
+    </nav>
+    {% block content %}{% endblock %}
+</body>
+</html>
